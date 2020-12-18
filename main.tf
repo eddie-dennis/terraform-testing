@@ -1,8 +1,7 @@
 terraform {
   required_providers {
     gcp  =  {
-      google      = ">= 3.0, <4.0"
-      google-beta = ">= 3.0, <4.0"
+      source = "hashicorp/google"
     }
     random = {
       source = "hashicorp/random"
