@@ -3,9 +3,6 @@ terraform {
     gcp  =  {
       source = "hashicorp/google"
     }
-    random = {
-      source = "hashicorp/random"
-    }
   }
 
   backend "remote" {
@@ -20,10 +17,8 @@ terraform {
 provider "gcp" {
   region = "us-central1"
   
-resource "random_pet" "default" {}
-
 resource "google_compute_instance" "default" {
-  name         = "virtual-machine-${random_pet}"
+  name         = "vm-web-test"
   machine_type = "f1-micro"
   zone         = "us-central1-a"
 
