@@ -21,6 +21,7 @@ provider "gcp" {
 resource "google_compute_instance" "default" {
   name         = "vm-web-test"
   machine_type = "f1-micro"
+  project      = "ee-terraform-test"
   zone         = "us-central1-a"
   
   metadata_startup_script = "sudo apt-get update && sudo apt-get install apache2 -y && echo '<!doctype html><html><body><h1>Goodbye World!</h1></body></html>' | sudo tee /var/www/html/index.html"
@@ -43,6 +44,7 @@ resource "google_compute_instance" "default" {
 resource "google_compute_firewall" "http_server" {
   name    = "default-allow-http-terraform"
   network = "default"
+  project = "ee-terraform-test"
 
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["http-server"]
