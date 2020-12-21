@@ -9,7 +9,7 @@ terraform {
     organization = "e-d"
 
     workspaces {
-      name = "terraform-testing"
+      name = "terraform-testing-api"
     }
   }
 }
